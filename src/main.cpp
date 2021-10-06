@@ -45,9 +45,9 @@ void onBeatDetected()
     Serial.println("Beat Detected!");
 }
 
-char auth[] = "ExpiIwshDT5bJmLLOvXVhkcggDOjGM1l";
-char ssid[] = "rumahkucing";
-char pass[] = "1sl4m4g4m4ku";
+char auth[] = "";
+char ssid[] = "";
+char pass[] = "";
 
 BLYNK_WRITE(V8){
   state.readMode = param.asInt();
