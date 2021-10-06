@@ -15,10 +15,6 @@
 #define type "MQ-135" //MQ135
 #define ADC_Bit_Resolution 10 // For arduino UNO/MEGA/NANO
 #define RatioMQ135CleanAir 3.6//RS / R0 = 3.6 ppm 
- 
-char auth[] = "";
-char ssid[] = "";
-char pass[] = "";
 
 PulseOximeter pox;
 MQUnifiedsensor MQ135(board, Voltage_Resolution, ADC_Bit_Resolution, pin, type);
@@ -42,7 +38,6 @@ struct GasParam
 struct Oxymeter{
   uint8_t spo2;
   uint8_t heartRate;
-  byte blynkPin[4] = {V6, V7, V8, V9};
 }oxy;
  
 void onBeatDetected()
@@ -50,7 +45,11 @@ void onBeatDetected()
     Serial.println("Beat Detected!");
 }
 
-BLYNK_WRITE(V10){
+char auth[] = "ExpiIwshDT5bJmLLOvXVhkcggDOjGM1l";
+char ssid[] = "rumahkucing";
+char pass[] = "1sl4m4g4m4ku";
+
+BLYNK_WRITE(V8){
   state.readMode = param.asInt();
   Serial.print("Current Mode: ");
   Serial.println(state.readMode);
